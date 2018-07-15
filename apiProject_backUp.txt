@@ -38,28 +38,44 @@ nbaTeams.showAthelete = (playerCards) =>{
 		  const madeName = () =>{
 
 		  const eachPlayerName = document.getElementById('nba-pic-test');
-		  //eachPlayerName.innerHTML += atheletes;
+		  eachPlayerName.innerHTML += atheletes;
 		  	
 		  }
-		 // madeName();
+		  madeName();
 
 		  //Create img element and setting it
 		  const imgURL = () =>{
 
 		 const eachPlayerImg = document.createElement('img');
 		 eachPlayerImg.setAttribute("src", playerImg);
-		 //document.getElementById('nba-pic-test').append(eachPlayerImg);
+		 document.getElementById('nba-pic-test').append(eachPlayerImg);
 
 		  }
-		  //imgURL();
+		  imgURL();
 
 		 const combineDataFunc = () =>{
 
-		 	console.log('it works');
-		 	let x = madeName();
-		 	let y = imgURL();
-		 	const card = document.getElementById('mainContainer');
-			card.insertAdjacentHTML('afterbegin', '<div class="card" id="card"><div class="card-image waves-effect waves-block waves-light" id="nba-pic-test">y</div><div class="card-content"><span class="card-title activator grey-text text-darken-4" id="cardTitle">x</span><p><a href="#">This is a link</a></p></div><div class="card-reveal"><p>Here is some more information about this product that is only revealed once clicked on.</p></div></div>');
+			 	console.log('it works');
+			 	let x = madeName();
+			 	let y = imgURL();
+			 	const markup = `
+						<div class="card" id="card">
+								    <div class="card-image waves-effect waves-block waves-light" id="nba-pic-test">
+								     ${y}
+								    </div>
+								    <div class="card-content">
+								      <span class="card-title activator grey-text text-darken-4" id="cardTitle">${x}</span> 
+								      <p><a href="#">This is a link</a></p>
+								    </div>
+								    <div class="card-reveal">
+								      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+								      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+								    </div>
+								  </div>
+								
+
+			 	`;
+			 	document.body.innerHTML = markup;
 
 		 } 
 		 combineDataFunc();
