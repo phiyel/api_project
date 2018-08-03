@@ -38,5 +38,39 @@ code {
   font-family: "Roboto", sans-serif;
   Vertical-align: bottom; }
 
+.top-bar {
+  width: 100%; }
+
+.search-container {
+  max-width: 950px;
+  margin: auto;
+  padding-right: 10px;
+  display: flex;
+  content-justify: flex-end; }
+
+.search {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 75px;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  transition: all .5s ease;
+  float: right; }
+
+.search:focus {
+  width: 200px; }
+
+.search {
+  width: 75px;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  transition: all .5s ease; }
+
+.search:focus {
+  width: 200px; }
+
 .card {
-  width: 260px; }
+  width: 260px;
+  flex-wrap: wrap;
+  justify-content: space-between; }

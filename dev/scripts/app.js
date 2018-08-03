@@ -13,8 +13,8 @@ nbaTeams.allTeams = () =>{
 	  }
 	}).then((res) =>{
 		//body
-		 const playerDetails = res.players;//res.leaguePlayers.players
-		//console.log(playerDetails);
+		 const playerDetails = res.players;
+		 console.log(playerDetails);
 		
 
 		//ToDo
@@ -22,50 +22,62 @@ nbaTeams.allTeams = () =>{
 	});
 };
 
-//display playcards on page
+//Atheletes position
+nbaTeams.playerPosition = (position) =>{
+	if (position == 'PF') {
+		return 'Power Forward'
+	} else if (position == 'C'){
+		return 'Centre'
+	}else if (position == 'SG'){
+		return 'Shooting Guard'
+	}else if (position == 'PG'){
+		return 'Point Guard'
+	}else if (position == 'SF'){
+		return 'Small Forward'
+	}else {
+		return
+	}
+}
+
+//College went by Athelete
+nbaTeams.collegeOfAthelete = (colleges) =>{
+	if (colleges == null) {
+		return 'High School'
+	} else {
+		return colleges;
+	}
+}
+
+//Athelets details listed
+nbaTeams.AtheleteTemplate = (atheleteDtls) =>{
+	return `
+			<div class="card" id="card">
+			    <div class="card-image waves-effect waves-block waves-light" id="nba-pic-test">
+			    	<img class="activator athelete-card__img" src="${atheleteDtls.player.officialImageSrc}" onerror="this.src='http://via.placeholder.com/260x190';" alt="Missing Image" />
+			    </div>
+			    <div class="card-content">
+			      <span class="card-title activator grey-text text-darken-4" id="cardTitle">${atheleteDtls.player.firstName} ${atheleteDtls.player.lastName}</span>
+			      
+			    </div>
+			    <div class="card-reveal">
+			      <span class="card-title grey-text text-darken-4">More details<i class="material-icons right">X</i></span>
+			      <p>Born in ${atheleteDtls.player.birthCity} ${atheleteDtls.player.birthCountry}</p>
+			      <p>Came out of: ${nbaTeams.collegeOfAthelete(atheleteDtls.player.college)}</p>
+			      <p>Current position: ${nbaTeams.playerPosition(atheleteDtls.player.position)}</p>
+			      <p>Drafter year: ${atheleteDtls.player.drafted}</p>
+			    </div>
+			  </div>
+
+			`
+}
+
+//display playcards template
 nbaTeams.showAthelete = (playerCards) =>{
 
-		 //try for each to get player object
-		playerCards.forEach((element) => {
-		  //list all players
-		  const firstName = element.player.firstName;
-		  const lastName = element.player.lastName;
-		  const playerImg = element.player.officialImageSrc;
-		  const atheletes = `${firstName}   ${lastName}`; // \n  ${playerImg}
-		// console.log(atheletes);
-
-		  //Append
-		  const madeName = () =>{
-
-		  const eachPlayerName = document.getElementById('nba-pic-test');
-		  //eachPlayerName.innerHTML += atheletes;
-		  	
-		  }
-		 // madeName();
-
-		  //Create img element and setting it
-		  const imgURL = () =>{
-
-		 const eachPlayerImg = document.createElement('img');
-		 eachPlayerImg.setAttribute("src", playerImg);
-		 //document.getElementById('nba-pic-test').append(eachPlayerImg);
-
-		  }
-		  //imgURL();
-
-		 const combineDataFunc = () =>{
-
-		 	console.log('it works');
-		 	let x = madeName();
-		 	let y = imgURL();
-		 	const card = document.getElementById('mainContainer');
-			card.insertAdjacentHTML('afterbegin', '<div class="card" id="card"><div class="card-image waves-effect waves-block waves-light" id="nba-pic-test">y</div><div class="card-content"><span class="card-title activator grey-text text-darken-4" id="cardTitle">x</span><p><a href="#">This is a link</a></p></div><div class="card-reveal"><p>Here is some more information about this product that is only revealed once clicked on.</p></div></div>');
-
-		 } 
-		 combineDataFunc();
-
-
-		});
+			document.getElementById("mainContainer").innerHTML = `
+		  			<h1 class="app-title">Numb of players: ${playerCards.length}</h1>
+		  			${playerCards.map(nbaTeams.AtheleteTemplate).join('')}
+		`;	
 			
 
 }
