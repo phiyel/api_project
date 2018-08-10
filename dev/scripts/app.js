@@ -56,7 +56,15 @@ nbaTeams.AtheleteTemplate = (atheleteDtls) =>{
 			    	<img class="activator athelete-card__img" src="${atheleteDtls.player.officialImageSrc}" onerror="this.src='http://via.placeholder.com/260x190';" alt="Missing Image" />
 			    </div>
 			    <div class="card-content">
-			      <span class="card-title activator grey-text text-darken-4" id="cardTitle">${atheleteDtls.player.firstName} ${atheleteDtls.player.lastName}</span>
+			      <span class="card-title activator grey-text text-darken-4" id="cardTitle">${atheleteDtls.player.firstName} ${atheleteDtls.player.lastName} <i class="material-icons right"><svg width="12" height="14" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<g>
+	<path d="M30,16c4.411,0,8-3.589,8-8s-3.589-8-8-8s-8,3.589-8,8S25.589,16,30,16z"/>
+	<path d="M30,44c-4.411,0-8,3.589-8,8s3.589,8,8,8s8-3.589,8-8S34.411,44,30,44z"/>
+	<path d="M30,22c-4.411,0-8,3.589-8,8s3.589,8,8,8s8-3.589,8-8S34.411,22,30,22z"/>
+</g>
+</svg>
+</i></span>
 			      
 			    </div>
 			    <div class="card-reveal">
