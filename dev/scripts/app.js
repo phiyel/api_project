@@ -22,6 +22,23 @@ nbaTeams.allTeams = () =>{
 	});
 };
 
+
+
+ 
+//Drafted year
+nbaTeams.TeamDraftedYear = (draftLeague) =>{
+	
+	if (draftLeague == null) {
+
+		return 'Was not drafted'
+
+	} else {
+		
+		return draftLeague.year;
+	}
+
+}
+
 //Atheletes position
 nbaTeams.playerPosition = (position) =>{
 	if (position == 'PF') {
@@ -71,8 +88,8 @@ nbaTeams.AtheleteTemplate = (atheleteDtls) =>{
 			      <span class="card-title grey-text text-darken-4">More details<i class="material-icons right">X</i></span>
 			      <p>Born in ${atheleteDtls.player.birthCity} ${atheleteDtls.player.birthCountry}</p>
 			      <p>Came out of: ${nbaTeams.collegeOfAthelete(atheleteDtls.player.college)}</p>
-			      <p>Current position: ${nbaTeams.playerPosition(atheleteDtls.player.position)}</p>
-			      <p>Drafter year: ${atheleteDtls.player.drafted}</p>
+			      <p>Current position: ${nbaTeams.playerPosition(atheleteDtls.player.primaryPosition)}</p>
+			      <p>Drafter year: ${nbaTeams.TeamDraftedYear(atheleteDtls.player.drafted)}</p>
 			    </div>
 			  </div>
 
@@ -90,9 +107,11 @@ nbaTeams.showAthelete = (playerCards) =>{
 
 }
 
+
 //all other funcs variables live here
 nbaTeams.init = () =>{
 	nbaTeams.allTeams();
+
 };
 
 //main func to run app

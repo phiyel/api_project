@@ -95,7 +95,24 @@ code {
 //Cards
 .card{
   width: 260px;
-  flex-wrap: wrap;
-  // align-content: space-between;
-  justify-content: space-between;
+  // display:inline-block;
+  float:left;
+  margin: 20px 8px !important;
+  .card-content{
+    padding: 20px!important;
+    .card-title {
+        i{
+          position: absolute;
+          right: 9px;
+          top: 109px;
+        }
+    }
+  }
+  .card-title{
+    font-size: 20px !important;
+  }
 }
+.card 
+.card 
+
+.card .card-content 

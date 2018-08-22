@@ -72,5 +72,11 @@ code {
 
 .card {
   width: 260px;
-  flex-wrap: wrap;
-  justify-content: space-between; }
+  float: left;
+  margin: 20px 8px !important; }
+
+.card .card-content {
+  padding: 20px !important; }
+
+.card .card-title {
+  font-size: 20px !important; }
